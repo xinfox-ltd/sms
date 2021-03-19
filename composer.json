@@ -1,0 +1,24 @@
+{
+    "name": "xinfox/sms",
+    "description": "sms",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "令狐冲",
+            "email": "nicolaslei@163.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "guzzlehttp/guzzle": "^7.2",
+        "psr/http-factory": "^1.0",
+        "psr/http-client": "^1.0",
+        "ext-json": "*",
+        "ext-simplexml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "XinFox\\Sms\\": "src"
+        }
+    }
+}
