@@ -13,5 +13,5 @@ interface MessageInterface
 
     public function getContent(GatewayInterface $gateway): string;
 
-    public function getTemplate(GatewayInterface $gateway);
+    public function getTemplate(GatewayInterface $gateway): string;
 }

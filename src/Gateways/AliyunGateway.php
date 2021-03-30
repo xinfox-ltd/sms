@@ -61,13 +61,18 @@ class AliyunGateway extends Gateway
         ];
 
         $params['Signature'] = $this->generateSign($params);
-return $params;
-        $result = $this->get($this->endpointUrl, $params);
-        if ('OK' != $result['Code']) {
-            throw new GatewayErrorException($result['Message'], $result['Code'], $result);
-        }
 
-        return $result;
+        $debug = $this->config['debug'] ?? false;
+        if ($debug !== false) {
+            return $params;
+        } else {
+            $result = $this->get($this->endpointUrl, $params);
+            if ('OK' != $result['Code']) {
+                throw new GatewayErrorException($result['Message'], $result['Code'], $result);
+            }
+
+            return $result;
+        }
     }
 
     private function generateSign(array $params): string

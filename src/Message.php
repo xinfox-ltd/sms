@@ -40,11 +40,16 @@ class Message implements MessageInterface
         return $this->getProperty($this->content, $gateway);
     }
 
-    public function getTemplate(GatewayInterface $gateway)
+    public function getTemplate(GatewayInterface $gateway): string
     {
         return $this->getProperty($this->template, $gateway);
     }
 
+    /**
+     * @param $property
+     * @param GatewayInterface $gateway
+     * @return false|mixed
+     */
     protected function getProperty($property, GatewayInterface $gateway)
     {
         return $property instanceof \Closure ? call_user_func($property, $gateway) : $property;
